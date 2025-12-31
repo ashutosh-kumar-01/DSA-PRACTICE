@@ -91,6 +91,8 @@ void mergeSort(vector<int> &v){
     mergeSort(a);
     mergeSort(b);
     merge(a,b,v);
+    a.clear();
+    b.clear();
 }
 int main(){
    int arr[] = {5,1,3,0,4,9,6};
