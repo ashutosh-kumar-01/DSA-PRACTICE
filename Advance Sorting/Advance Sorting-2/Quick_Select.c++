@@ -1,4 +1,5 @@
-// Quick Sort 
+// kth Smallest Element using Quick Select Algorithm
+
 #include <iostream>
 using namespace std;
 int partition(int arr[], int si, int ei){
@@ -24,22 +25,19 @@ int partition(int arr[], int si, int ei){
     }
     return pivotIndex;
 }
-void quickSort(int arr[], int si, int ei){
-    if(si>=ei) return;
+int KthSmallest(int arr[], int si, int ei, int k){
     int pi = partition(arr, si, ei);
-    quickSort(arr, si, pi-1);
-    quickSort(arr, pi+1, ei);
+    if(pi+1==k) return arr[pi];
+    if(pi+1<k) return KthSmallest(arr, pi+1, ei, k);
+    else return KthSmallest(arr, si, pi-1, k);
 }
 int main(){
-    int arr[] = {5,1,8,2,7,6,3,4};
+    int arr[] = {5,1,8,2,7,6,3,4,-8};
     int n = sizeof(arr)/sizeof(arr[0]);
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
     }
     cout<<endl;
-    quickSort(arr, 0, n-1);
-    for(int i=0;i<n;i++){
-        cout<<arr[i]<<" ";
-    }
+    int k = 4;
+    cout<<KthSmallest(arr, 0, n-1,k);
 }
-
