@@ -17,8 +17,3 @@ int main(){
         cout<<"Factorial of "<<i<<" is "<<res[i]<<endl;
     }
 }
-
-
-
-// next  
-// next
