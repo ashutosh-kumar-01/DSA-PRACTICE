@@ -1,25 +1,24 @@
-// max consecutives ones iii 
+// longest subarray of 1's after deleting one element.
 #include <bits/stdc++.h>
 using namespace std;
 class Solution {
 public:
-    int longestOnes(vector<int>& nums, int k) {
+    int longestSubarray(vector<int>& nums) {
         int n = nums.size();
+        int k = 1;
         int flips = 0, i = 0, j = 0;
         int maxLen = INT_MIN, len = INT_MIN;
         while(j<n){
             if(nums[j]==1) j++;
-            else { // nums[j] == 0
+            else{
                 if(flips<k){
                     flips++;
                     j++;
                 }
-                else{ //flips == k
-                    // calculate len
+                else{
                     len = j-i;
-                    maxLen = max(maxLen,len);
-                    // i ko just uske aage wale 0 se ek idx aage le jaao
-                    while(nums[i]==1) i++; //after this 100% nums[i] = 1;
+                    maxLen = max(maxLen, len);
+                    while(nums[i]==1) i++;
                     i++;
                     j++;
                 }
@@ -27,8 +26,6 @@ public:
         }
         len = j-i;
         maxLen = max(maxLen,len);
-        return maxLen;
+        return maxLen-1;
     }
 };
-
-// 2:40:33
