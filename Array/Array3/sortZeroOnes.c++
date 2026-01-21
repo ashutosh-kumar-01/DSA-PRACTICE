@@ -50,18 +50,14 @@ int main(){
 #include <vector>
 using namespace std;
 
-void display(vector<int> &arr, int n)
-{
-    for (int i = 0; i < n; i++)
-    {
+void display(vector<int> &arr, int n){
+    for (int i = 0; i < n; i++){
         cout << arr[i] << " ";
     }
 }
-void sort01(vector<int> &arr, int n)
-{
+void sort01(vector<int> &arr, int n){
     int i = 0;
     int j = n - 1;
-
     while (i < j){
         if (arr[i] == 0) i++;
         if (arr[j] == 1) j--;
@@ -74,13 +70,11 @@ void sort01(vector<int> &arr, int n)
         }
     }
 }
-int main()
-{
+int main(){
     int n;
     cin >> n;
     vector<int> arr(n);
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++){
         cin >> arr[i];
     }
     sort01(arr, n);
