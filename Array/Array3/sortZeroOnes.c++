@@ -79,5 +79,6 @@ int main(){
     }
     sort01(arr, n);
     display(arr, n);
+    return 0;
 }
 
