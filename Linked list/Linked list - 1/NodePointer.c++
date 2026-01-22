@@ -10,6 +10,33 @@ public:
         this->next = NULL;
     }   
 };
+// Function to display linked list
+void display(Node* head){
+    Node* temp = head;
+    while(temp!=NULL){
+        cout<<temp->val<<" ";
+        temp = temp->next;
+    }
+    cout<<endl;
+}
+// Function to calculate size of linked list
+int Size(Node* head){
+    Node* temp = head;
+    int n = 0;
+    while(temp!=NULL){
+        n++;
+        temp = temp->next;
+       
+    }
+    return n;
+}
+// function to display using recursion
+void displayRec(Node* head){
+    if(head==NULL) return;
+    cout<<head->val<<" ";
+    displayRec(head->next);
+}
+
 int main(){
     Node* a = new Node(10);
     Node* b = new Node(20);
@@ -21,9 +48,15 @@ int main(){
     c->next = d; 
        
     // traversing the linked list
-    Node* temp = a;
-    while(temp!=NULL){
-        cout<<temp->val<<" ";
-        temp = temp->next;
-    } 
+    // Node* temp = a;
+    // while(temp!=NULL){
+    //     cout<<temp->val<<" ";
+    //     temp = temp->next;
+    // } 
+
+    display(a);
+    cout<<Size(a);
+    cout<<endl;
+    displayRec(a);
+    return 0;
 }
