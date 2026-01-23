@@ -32,11 +32,21 @@ int Size(Node* head){
 }
 // function to display using recursion
 void displayRec(Node* head){
-    if(head==NULL) return;
-    cout<<head->val<<" ";
-    displayRec(head->next);
+    if(head==NULL) return; //base case
+    cout<<head->val<<" "; // kaam
+    displayRec(head->next); //call
 }
-
+// reverse a linked list
+void ReverseDisplay(Node* head){
+    if(head==NULL) return; //base case
+    ReverseDisplay(head->next); //call
+    cout<<head->val<<" "; // kaam
+}
+void insertAtEnd(Node* head , int val){
+    Node* t = new Node(val);
+    while(head->next!=NULL) head = head->next;
+    head->next = t;
+}
 int main(){
     Node* a = new Node(10);
     Node* b = new Node(20);
@@ -54,9 +64,12 @@ int main(){
     //     temp = temp->next;
     // } 
 
+    insertAtEnd(a,90);
     display(a);
     cout<<Size(a);
     cout<<endl;
     displayRec(a);
+    cout<<endl;
+    ReverseDisplay(a);
     return 0;
 }
