@@ -103,3 +103,6 @@ int main(){
     ll.display(); // 10 15 20 30 40
     return 0;
 }
+
+// 3:44:31
+// next
