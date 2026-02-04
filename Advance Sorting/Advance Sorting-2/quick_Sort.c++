@@ -10,7 +10,9 @@ int partition(int arr[], int si, int ei){
                 count++;
             } 
     }
+    // find the correct pivot index
     int pivotIndex = count + si;
+    // move pivot to correct position
     swap(arr[(si+ei)/2],arr[pivotIndex]);
     int i = si, j = ei;
     while(i<pivotIndex && j>pivotIndex){
