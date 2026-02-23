@@ -1,0 +1,78 @@
+// pailandrome linked list
+// class Solution {
+// public:
+//      ListNode* reverse(ListNode* head) {
+//         ListNode* prev = NULL;
+//         ListNode* curr = head;
+//         ListNode* Next = NULL;  // isko ham head pr b rakh sakte hai 
+//         while(curr!=NULL){
+//             Next = curr->next;
+//             curr->next = prev;
+//             prev = curr;
+//             curr = Next;
+//         }
+//         return prev;
+//     }
+//     bool isPalindrome(ListNode* head) {
+//         ListNode* c = new ListNode(10);
+//         // deep copy of head
+//         ListNode* temp = head;
+//         ListNode* tempC = c;
+//         while(temp){
+//             ListNode* node = new ListNode(temp->val);
+//             tempC->next = node;
+//             temp = temp->next;
+//             tempC = tempC->next;
+//         }
+//         c = c->next;
+//         c = reverse(c);
+//         ListNode* a = head;
+//         ListNode* b = c;
+//         while(a){
+//             if(a->val != b->val) return false;
+//             a = a->next;
+//             b = b->next;
+//         }
+//         return true;
+//     }
+// };
+
+
+// ---------------------------------------------------------------------------------------
+// best method 
+
+// class Solution {
+// public:
+//     ListNode* reverseList(ListNode* head) {
+//         ListNode* prev = NULL;
+//         ListNode* curr = head;
+//         ListNode* Next = NULL;  // isko ham head pr b rakh sakte hai 
+//         while(curr!=NULL){
+//             Next = curr->next;
+//             curr->next = prev;
+//             prev = curr;
+//             curr = Next;
+//         }
+//         return prev;
+//     }
+//     bool isPalindrome(ListNode* head) {
+//         // if the forst half and second half are reverse of each 
+//         // other then it is a palindrome
+//         ListNode* slow = head;
+//         ListNode* fast = head;
+//         while(fast->next!=NULL && fast->next->next!=NULL){
+//             slow = slow->next;
+//             fast = fast->next->next; 
+//         }
+//         // slow is at the left middle/middle
+//         ListNode* newHead  = reverseList(slow->next);
+//         ListNode* a = head;
+//         ListNode* b = newHead;
+//         while(b!=NULL){
+//             if(a->val != b->val) return false;
+//             a = a->next;
+//             b = b->next;
+//         }
+//         return true;
+//     }
+// };
