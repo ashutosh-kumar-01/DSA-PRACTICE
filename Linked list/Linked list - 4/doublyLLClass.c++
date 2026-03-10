@@ -59,6 +59,51 @@ public:
             size++;
         }
     }
+    void deleteAtHead(){
+        if(size==0){
+            cout<<"List is Empty";
+            return;
+        }
+        head = head->next;
+        if(head) head->prev = NULL; //extra
+        if(head==NULL) tail = NULL; //extra
+        size--;
+    }
+    void deleteAtTail(){
+        if(size==0){
+            cout<<"List is Empty"<<endl;
+            return;
+        }
+        else if(size==1){ //extra
+            deleteAtHead();
+            return;
+        }
+        Node* temp = tail->prev;
+        temp->next = NULL;
+        tail = temp;
+        size--;
+    }
+    void deleteAtIdx(int idx){
+        if(size==0){
+            cout<<"List is Empty";
+            return;
+        }
+        else if(idx<0 || idx>=size){
+            cout<<"Invalid Index";
+            return;
+        }
+        else if(idx==0) return deleteAtHead();
+        else if(idx==size-1) return deleteAtTail();
+        else{
+            Node* temp = head;
+            for(int i=1;i<=idx-1;i++){
+                temp = temp->next;
+            }
+            temp->next = temp->next->next;
+            temp->next->prev = temp; // extra
+            size--;
+        }
+    }
     void display(){
         Node* temp = head;
             while(temp){
@@ -77,4 +122,10 @@ int main(){
     list.display(); // 10 20 30 40
     list.insertAtHead(5);
     list.display(); // 5 10 20 30 40
+    list.deleteAtTail();
+    list.display(); // 5 10 20 30
+    list.insertAtHead(90);
+    list.display();
+    list.deleteAtIdx(3);
+    list.display();
 }
