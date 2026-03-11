@@ -129,3 +129,5 @@ int main(){
     list.deleteAtIdx(3);
     list.display();
 }
+
+// 1:15:26
