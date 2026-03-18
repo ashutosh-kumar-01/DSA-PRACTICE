@@ -10,5 +10,25 @@ int main(){
     cout << st.size() << endl; // 4
     st.pop();
     cout << st.size() << endl; // 3
-}
+    // not good way 
+    // while(st.size()>0){
+    //     cout<<st.top()<<" ";
+    //     st.pop();
+    // }
 
+    // we use extra stack
+    stack<int> temp;
+    while(st.size()>0){
+        cout<<st.top()<<" ";
+        int x = st.top();
+        st.pop();
+        temp.push(x);
+    }
+    // putting elements back to original stack
+    while(temp.size()>0){
+        int x  = temp.top();
+        temp.pop();
+        st.push(x);
+    }
+    
+}
