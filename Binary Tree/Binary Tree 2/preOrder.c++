@@ -12,11 +12,18 @@ public:
         this->right = NULL;
     }
 };
-void display(Node* root){
+// void display(Node* root){
+//     if(root==NULL) return;
+//     cout<<root->val<<" ";
+//     display(root->left);
+//     display(root->right);
+// }
+
+void preOrder(Node* root){
     if(root==NULL) return;
-    cout<<root->val<<" ";
-    display(root->left);
-    display(root->right);
+    cout<<root->val<<" ";  // vist root first
+    preOrder(root->left); //then left subtree
+    preOrder(root->right); //then right subtree
 }
 int main(){
     Node* a = new Node(1);
@@ -33,5 +40,5 @@ int main(){
     b->right = e;
     c->left = f;
     c->right = g;
-    display(a);
+    preOrder(a);
 }
