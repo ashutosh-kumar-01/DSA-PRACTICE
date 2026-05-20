@@ -1,8 +1,8 @@
-// pre order teaversal iterative approach 
+// iterative method 
 
-class Solution{
+class Solution {
 public:
-    vector<int> preorderTraversal(TreeNode* root){
+    vector<int> postorderTraversal(TreeNode* root) {
         vector<int> ans;
         stack<TreeNode*> st;
         if(root!=NULL) st.push(root);
@@ -10,9 +10,10 @@ public:
             TreeNode* temp = st.top();
             st.pop();
             ans.push_back(temp->val);
-            if(temp->right!=NULL) st.push(temp->right);
             if(temp->left!=NULL) st.push(temp->left);
+            if(temp->right!=NULL) st.push(temp->right);
         }
+        reverse(ans.begin(),ans.end());
         return ans;
     }
-}
+};
