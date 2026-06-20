@@ -18,3 +18,5 @@ public:
         return isValidBST(root->left) && isValidBST(root->right);
     }
 };
+
+// 1:17:53
