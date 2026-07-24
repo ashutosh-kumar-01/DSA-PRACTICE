@@ -16,13 +16,16 @@ int main(){
     p3.first = "ghi";
     p3.second = 3;
 
+    // another way to insert in map
+    m["ashutosh"] = 4;
+
 
     m.insert(p1);
     m.insert(p2);
     m.insert(p3);
 
 
-    for(pair<string,int> p:m){
+    for(auto p:m){
         cout<<p.first<<" "<<p.second<<endl;
     }
 }
