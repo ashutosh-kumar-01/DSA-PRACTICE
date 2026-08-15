@@ -21,3 +21,5 @@ int main(){
     }
     cout<<minCost;
 }
+
+// 47:30 l2
