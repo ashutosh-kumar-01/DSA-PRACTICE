@@ -41,4 +41,3 @@ public:
  * double param_2 = obj->findMedian();
  */
 
-//  1:07:58
