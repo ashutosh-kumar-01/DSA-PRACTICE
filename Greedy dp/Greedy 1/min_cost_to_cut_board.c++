@@ -64,3 +64,5 @@ int main(){
     cout<<minCostToBreakGrid(n, m, x, y)<<endl;
     return 0;
 }
+
+// 2:25:00
